@@ -22,8 +22,8 @@ public class Card
    public final static int KING = 13; 
    
    /**
-      Card class constructor with suit and rank specified. Suit will bespecified in the form
-      Card.SPADES, and rank eithr the number so just 10 or something like Card.JACK for a face 
+      Card class constructor with suit and rank specified. Suit will be specified in the form
+      Card.SPADES, and rank either the number so just 10 or something like Card.JACK for a face 
       card. 
       @param int rank: the number rank
       @param int suit: the suit using the class constants 
@@ -32,6 +32,16 @@ public class Card
    {
       this.rank = rank;
       this.suit = suit; 
+   }
+   /**
+      Copy constructor that accepts a card as an argument and creates a new card that is a copy of 
+      that card
+      @param Card otherCard
+   */
+   public Card(Card otherCard)
+   {
+      this.rank = otherCard.getRank();
+      this.suit = otherCard.getSuit();
    }
    /**
       The getSuit method returns the suit associated with the Card object as an int such that:

@@ -1,20 +1,25 @@
 /**
  * Representation of a Deck of cards.  
  * Initialized to a standard 52 card deck. 
-   Modified to have max size of 104 for Game of War
- *
+    *
  * @author Jackie Horton
-   modified for Game of War Jaired Stewart
+   modified for Game of War by Jaired Stewart 
+   Modifications:
+   -cardsInDeck now a private int instead of a constant as in war a deck might have more than 52 Cards
+   -new Contstant named STANDARD_DECK for freshDeck method
+   -copy constructor that accepts a deck of any size 
+   -conttructor that creates an empty deck of a given size
  */
 
 import java.util.Random;
 public class Deck 
 {
    /** 
-   *  Number of cards in standard deck {@value #CARDS_IN_DECK}
+   *  Number of cards in deck {@value #CARDS_IN_DECK}
    **/
-   public final static int CARDS_IN_DECK = 52;
-
+   private int cardsInDeck;
+   //Standard number of cards in Deck
+   public static final int STANDARD_DECK = 52;
    /** The collection of Cards */
    private Card [] deck;
    /** Current number of Cards in Deck */
@@ -30,11 +35,36 @@ public class Deck
       freshDeck();
    }
    /**
+      Copy constructor that creates a copy of another deck input as an argument
+      It is possible to have multiple of the same card and have more or less
+      than 52 cards
+      @param Deck otherDeck
+   */
+   public Deck(Deck otherDeck)
+   {
+      cardsInDeck = otherDeck.cardsRemaining();
+      deck = new Card [cardsInDeck];
+      for(int i = 0; i<cardsInDeck; i++)
+      {
+         deck[ct] = new Card(otherDeck.dealCard());
+         ct++;
+      }   
+   }
+   /**
+      Constructor that creates an empty deck of a given size
+      @param int deckSize
+   */
+   public Deck(int deckSize)
+   {
+      cardsInDeck = deckSize;
+      deck = new Card[cardsInDeck];
+   }
+   /**
     * Create a new collection of 52 cards, in sorted order
     */
    public void freshDeck()
    {
-      deck = new Card[CARDS_IN_DECK];
+      deck = new Card[STANDARD_DECK];
       for (int r = Card.ACE; r<=Card.KING;r++)
       {
          for (int s=Card.SPADES;s<=Card.CLUBS;s++)
@@ -62,6 +92,16 @@ public class Deck
    public int cardsRemaining()
    {  
       return ct;
+   }
+   /**
+      Add a card to the deck
+      @param Card addedCard
+   */
+   public void add(Card addedCard)
+   {
+      Card temp = new Card(addedCard);
+      deck[ct] = temp;
+      ct++;
    }
    /** 
      * Randomize the order of Cards in Deck
