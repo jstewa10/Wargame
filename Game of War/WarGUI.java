@@ -89,6 +89,7 @@ public class WarGUI extends JFrame
       eastPanel.add(cardsInDiscardLabel);
       eastPanel.add(player1Discard);
       pack();
+      
       //West Panel
       player2Label = new JLabel("YOU");
       cardsInDeckWLabel = new JLabel("Cards in Deck: ");
@@ -104,6 +105,9 @@ public class WarGUI extends JFrame
       westPanel.add(cardsInDiscardWLabel);
       westPanel.add(player2Discard);
       pack();
+      
+      //center panel
+      
       //South panel
       
       //create next round and quit buttons 

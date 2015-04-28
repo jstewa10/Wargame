@@ -8,7 +8,8 @@
    -cardsInDeck now a private int instead of a constant as in war a deck might have more than 52 Cards
    -new Contstant named STANDARD_DECK for freshDeck method
    -copy constructor that accepts a deck of any size 
-   -conttructor that creates an empty deck of a given size
+   -constructor that creates an empty deck of a given size
+   -freshDeck changed since my card class had different constants 
  */
 
 import java.util.Random;
@@ -41,7 +42,8 @@ public class Deck
       @param Deck otherDeck
    */
    public Deck(Deck otherDeck)
-   {
+   {  
+      ct = 0;
       cardsInDeck = otherDeck.cardsRemaining();
       deck = new Card [cardsInDeck];
       for(int i = 0; i<cardsInDeck; i++)
@@ -56,6 +58,7 @@ public class Deck
    */
    public Deck(int deckSize)
    {
+      ct = 0;
       cardsInDeck = deckSize;
       deck = new Card[cardsInDeck];
    }
@@ -64,10 +67,11 @@ public class Deck
     */
    public void freshDeck()
    {
+      ct = 0;
       deck = new Card[STANDARD_DECK];
       for (int r = Card.ACE; r<=Card.KING;r++)
       {
-         for (int s=Card.SPADES;s<=Card.CLUBS;s++)
+         for (int s=Card.SPADES;s<=Card.DIAMONDS;s++)
          {
             deck[ct]=new Card(r,s);
             ct = ct + 1;
