@@ -162,12 +162,36 @@ public class WarGUI extends JFrame
          a game of war
          @param ActionEvent e
       */
-      public void actionPerformed(ActionEvent e)
+      public void actionPerformed(ActionEvent e) throws ArrayIndexOutOfBoundsException
       {
          Card user; 
          Card opp;
+         //update deck totals
+         player2Deck.setText(Integer.toString(game.getUserCards())); 
+         player2Discard.setText(Integer.toString(game.getUserDiscard()));
+         player1Deck.setText(Integer.toString(game.getOpponentCards()));
+         player1Discard.setText(Integer.toString(game.getOpponentDiscard()));
+
          //play a round
-         game.round();
+         try
+         {
+            game.round();
+         }   
+         catch (IndexOutOfBoundsException ex)
+         {
+            int test = game.getUserDiscard();
+            if(test == 0)
+            {
+               JOptionPane.showMessageDialog(null,"You Lose");
+               
+            }
+            else
+            {
+               JOptionPane.showMessageDialog(null,"Congratulations, you win!");
+            }
+            new MainMenu();
+         }
+            
          user = game.getUserCard();
          //update card images
          switch (user.toString())
@@ -385,217 +409,212 @@ public class WarGUI extends JFrame
          {
             case "Ace of Hearts":
                ImageIcon aceh = new ImageIcon("aceh.jpg");
-               userCardImage.setIcon(aceh);
+               oppCardImage.setIcon(aceh);
                break;
             case "Ace of Spades":
                ImageIcon aces = new ImageIcon("aces.jpg");
-               userCardImage.setIcon(aces);
+               oppCardImage.setIcon(aces);
                break;
             case "Ace of Clubs":
                ImageIcon acec = new ImageIcon("acec.jpg");
-               userCardImage.setIcon(acec);
+               oppCardImage.setIcon(acec);
                break;
             case "Ace of Diamonds":
                ImageIcon aced = new ImageIcon("aced.jpg");
-               userCardImage.setIcon(aced);
+               oppCardImage.setIcon(aced);
                break;
             case "2 of Hearts":
                ImageIcon h2 = new ImageIcon("2h.jpg");
-               userCardImage.setIcon(h2);
+               oppCardImage.setIcon(h2);
             case "2 of Spades":
                ImageIcon s2 = new ImageIcon("2s.jpg");
-               userCardImage.setIcon(s2);
+               oppCardImage.setIcon(s2);
                break;
             case "2 of Clubs":
                ImageIcon c2 = new ImageIcon("2c.jpg");
-               userCardImage.setIcon(c2);
+               oppCardImage.setIcon(c2);
                break;
             case "2 of Diamonds":
                ImageIcon d2 = new ImageIcon("2d.jpg");
-               userCardImage.setIcon(d2);
+               oppCardImage.setIcon(d2);
                break;
             case "3 of Hearts":
                ImageIcon h3 = new ImageIcon("3h.jpg");
-               userCardImage.setIcon(h3);
+               oppCardImage.setIcon(h3);
                break;
             case "3 of Spades":
                ImageIcon s3 = new ImageIcon("3s.jpg");
-               userCardImage.setIcon(s3);
+               oppCardImage.setIcon(s3);
                break;               
             case "3 of Clubs":
                ImageIcon c3 = new ImageIcon("3c.jpg");
-               userCardImage.setIcon(c3);
+               oppCardImage.setIcon(c3);
                break;               
             case "3 of Diamonds":
                ImageIcon d3 = new ImageIcon("3d.jpg");
-               userCardImage.setIcon(d3);
+               oppCardImage.setIcon(d3);
                break; 
             case "4 of Hearts":
                ImageIcon h4 = new ImageIcon("4h.jpg");
-               userCardImage.setIcon(h4);
+               oppCardImage.setIcon(h4);
                break;
             case "4 of Spades":
                ImageIcon s4 = new ImageIcon("4s.jpg");
-               userCardImage.setIcon(s4);
+               oppCardImage.setIcon(s4);
                break;               
             case "4 of Clubs":
                ImageIcon c4 = new ImageIcon("4c.jpg");
-               userCardImage.setIcon(c4);
+               oppCardImage.setIcon(c4);
                break;
             case "4 of Diamonds":
                ImageIcon d4 = new ImageIcon("4d.jpg");
-               userCardImage.setIcon(d4);
+               oppCardImage.setIcon(d4);
                break;
             case "5 of Hearts":
                ImageIcon h5 = new ImageIcon("5h.jpg");
-               userCardImage.setIcon(h5);
+               oppCardImage.setIcon(h5);
                break;
             case "5 of Spades":
                ImageIcon s5 = new ImageIcon("5s.jpg");
-               userCardImage.setIcon(s5);
+               oppCardImage.setIcon(s5);
                break;
             case "5 of Clubs":
                ImageIcon c5 = new ImageIcon("5c.jpg");
-               userCardImage.setIcon(c5);
+               oppCardImage.setIcon(c5);
                break;
             case "5 of Diamonds":
                ImageIcon d5 = new ImageIcon("5d.jpg");
-               userCardImage.setIcon(d5);
+               oppCardImage.setIcon(d5);
                break;
             case "6 of Hearts":
                ImageIcon h6 = new ImageIcon("6h.jpg");
-               userCardImage.setIcon(h6);
+               oppCardImage.setIcon(h6);
                break;
             case "6 of Clubs":
                ImageIcon c6 = new ImageIcon("6c.jpg");
-               userCardImage.setIcon(c6);
+               oppCardImage.setIcon(c6);
                break; 
             case "6 of Spades":
                ImageIcon s6 = new ImageIcon("6s.jpg");
-               userCardImage.setIcon(s6);
+               oppCardImage.setIcon(s6);
                break;
             case "6 of Diamonds":
                ImageIcon d6 = new ImageIcon("6d.jpg");
-               userCardImage.setIcon(d6);
+               oppCardImage.setIcon(d6);
                break;
             case "7 of Hearts":
                ImageIcon h7 = new ImageIcon("7h.jpg");
-               userCardImage.setIcon(h7);
+               oppCardImage.setIcon(h7);
                break;
             case "7 of Clubs":
                ImageIcon c7 = new ImageIcon("7c.jpg");
-               userCardImage.setIcon(c7);
+               oppCardImage.setIcon(c7);
                break; 
             case "7 of Spades":
                ImageIcon s7 = new ImageIcon("7s.jpg");
-               userCardImage.setIcon(s7);
+               oppCardImage.setIcon(s7);
                break;
             case "7 of Diamonds":
                ImageIcon d7 = new ImageIcon("7d.jpg");
-               userCardImage.setIcon(d7);
+               oppCardImage.setIcon(d7);
                break;
             case "8 of Hearts":
                ImageIcon h8 = new ImageIcon("8h.jpg");
-               userCardImage.setIcon(h8);
+               oppCardImage.setIcon(h8);
                break;
             case "8 of Clubs":
                ImageIcon c8 = new ImageIcon("8c.jpg");
-               userCardImage.setIcon(c8);
+               oppCardImage.setIcon(c8);
                break; 
             case "8 of Spades":
                ImageIcon s8 = new ImageIcon("8s.jpg");
-               userCardImage.setIcon(s8);
+               oppCardImage.setIcon(s8);
                break;
             case "8 of Diamonds":
                ImageIcon d8 = new ImageIcon("8d.jpg");
-               userCardImage.setIcon(d8);
+               oppCardImage.setIcon(d8);
                break;               
             case "9 of Hearts":
                ImageIcon h9 = new ImageIcon("9h.jpg");
-               userCardImage.setIcon(h9);
+               oppCardImage.setIcon(h9);
                break;
             case "9 of Clubs":
                ImageIcon c9 = new ImageIcon("9c.jpg");
-               userCardImage.setIcon(c9);
+               oppCardImage.setIcon(c9);
                break; 
             case "9 of Spades":
                ImageIcon s9 = new ImageIcon("9s.jpg");
-               userCardImage.setIcon(s9);
+               oppCardImage.setIcon(s9);
                break;
             case "9 of Diamonds":
                ImageIcon d9 = new ImageIcon("9d.jpg");
-               userCardImage.setIcon(d9);
+               oppCardImage.setIcon(d9);
                break;            
             case "10 of Hearts":
                ImageIcon h10 = new ImageIcon("10h.jpg");
-               userCardImage.setIcon(h10);
+               oppCardImage.setIcon(h10);
                break;
             case "10 of Clubs":
                ImageIcon c10 = new ImageIcon("10c.jpg");
-               userCardImage.setIcon(c10);
+               oppCardImage.setIcon(c10);
                break; 
             case "10 of Spades":
                ImageIcon s10 = new ImageIcon("10s.jpg");
-               userCardImage.setIcon(s10);
+               oppCardImage.setIcon(s10);
                break;
             case "10 of Diamonds":
                ImageIcon d10 = new ImageIcon("10d.jpg");
-               userCardImage.setIcon(d10);
+               oppCardImage.setIcon(d10);
                break;  
             case "Jack of Hearts":
                ImageIcon jackh = new ImageIcon("jackh.jpg");
-               userCardImage.setIcon(jackh);
+               oppCardImage.setIcon(jackh);
                break;
             case "Jack of Clubs":
                ImageIcon jackc = new ImageIcon("jackc.jpg");
-               userCardImage.setIcon(jackc);
+               oppCardImage.setIcon(jackc);
                break; 
             case "Jack of Spades":
                ImageIcon jacks = new ImageIcon("jacks.jpg");
-               userCardImage.setIcon(jacks);
+               oppCardImage.setIcon(jacks);
                break;
             case "Jack of Diamonds":
                ImageIcon jackd = new ImageIcon("jackd.jpg");
-               userCardImage.setIcon(jackd);
+               oppCardImage.setIcon(jackd);
                break; 
             case "Queen of Hearts":
                ImageIcon queenh = new ImageIcon("queenh.jpg");
-               userCardImage.setIcon(queenh);
+               oppCardImage.setIcon(queenh);
                break;   
             case "Queen of Spades":
                ImageIcon queens = new ImageIcon("queens.jpg");
-               userCardImage.setIcon(queens);
+               oppCardImage.setIcon(queens);
                break;        
             case "Queen of Clubs":
                ImageIcon queenc = new ImageIcon("queenc.jpg");
-               userCardImage.setIcon(queenc);
+               oppCardImage.setIcon(queenc);
                break;        
             case "Queen of Diamonds":
                ImageIcon queend = new ImageIcon("queend.jpg");
-               userCardImage.setIcon(queend);
+               oppCardImage.setIcon(queend);
                break; 
             case "King of Hearts":
                ImageIcon kingh = new ImageIcon("kingh.jpg");
-               userCardImage.setIcon(kingh);
+               oppCardImage.setIcon(kingh);
                break; 
             case "King of Spades":
                ImageIcon kings = new ImageIcon("kings.jpg");
-               userCardImage.setIcon(kings);
+               oppCardImage.setIcon(kings);
                break;  
             case "King of Clubs":
                ImageIcon kingc = new ImageIcon("kingc.jpg");
-               userCardImage.setIcon(kingc);
+               oppCardImage.setIcon(kingc);
                break;  
             case "King of Diamonds":
                ImageIcon kingd = new ImageIcon("kingd.jpg");
-               userCardImage.setIcon(kingd);
+               oppCardImage.setIcon(kingd);
                break;      
          }
-         //update deck totals
-         player2Deck.setText(Integer.toString(game.getUserCards())); 
-         player2Discard.setText(Integer.toString(game.getUserDiscard()));
-         player1Deck.setText(Integer.toString(game.getOpponentCards()));
-         player1Discard.setText(Integer.toString(game.getOpponentDiscard()));
  
       }
    }

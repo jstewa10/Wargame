@@ -72,6 +72,7 @@ public class GameOfWar
    {
 
       //draw cards 
+      //if both decks are empty before user draws, return victor
       userCard = user.draw();
       oppCard = opponent.draw();
       
