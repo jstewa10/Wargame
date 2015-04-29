@@ -117,8 +117,8 @@ public class Card
    
    /**
       The equals method compares two cards and if their ranks are equal returns true
-      @param a reference to a card object
-      @return boolean status: returns true if the cards are equal and false if they are not
+      @param Card card2 a reference to a card object
+      @return Boolean status: returns true if the cards are equal and false if they are not
    */
    public boolean equals(Card card2)
    {

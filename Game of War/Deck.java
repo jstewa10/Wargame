@@ -16,7 +16,7 @@ import java.util.Random;
 public class Deck 
 {
    /** 
-   *  Number of cards in deck {@value #CARDS_IN_DECK}
+   *  Number of cards in deck 
    **/
    private int cardsInDeck;
    //Standard number of cards in Deck
